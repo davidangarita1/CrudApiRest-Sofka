@@ -1,4 +1,4 @@
-package com.sofka.crudApiRest.models;
+package com.sofka.ApiRestSpring.ApiRestSpring.models;
 
 import javax.persistence.*;
 
@@ -11,8 +11,13 @@ public class UserModel {
     @Column(unique = true, nullable = false)
     private Long id;
 
+    @Column(nullable = false)
     private String name;
+
+    @Column(unique = true, nullable = false)
     private String email;
+
+    @Column(nullable = false)
     private Integer priority;
 
     public Long getId() {
