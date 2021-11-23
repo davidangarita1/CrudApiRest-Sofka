@@ -11,7 +11,7 @@ public class UserModel {
     @Column(unique = true, nullable = false)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, updatable = true)
     private String name;
 
     @Column(unique = true, nullable = false)

@@ -10,5 +10,5 @@ import java.util.Optional;
 @Repository
 public interface UserRepository extends CrudRepository<UserModel, Long> {
     public abstract ArrayList<UserModel> findByPriority(Integer priority);
-    public abstract Optional<UserModel> findByEmail(String email);
+    public abstract UserModel findByEmail(String email);
 }

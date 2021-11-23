@@ -22,7 +22,7 @@ public class UserService {
             userRepository.save(user);
             return "El usuario fue guardado con exito";
         }catch (Exception e) {
-            return null;
+            return "El usuario no fue guardado";
         }
     }
 
@@ -34,8 +34,8 @@ public class UserService {
         return userRepository.findByPriority(priority);
     }
 
-    public Optional<UserModel> getByEmail(String email){
-        return userRepository.findByEmail(email);
+    public UserModel getByEmailParam(UserModel user){
+        return userRepository.findByEmail(user.getEmail());
     }
 
     public boolean deleteUser(Long id){
@@ -43,6 +43,15 @@ public class UserService {
             userRepository.deleteById(id);
             return true;
         }catch (Exception err){
+            return false;
+        }
+    }
+
+    public boolean updateUser(UserModel user) {
+        try {
+            userRepository.save(user);
+            return true;
+        }catch (Exception e) {
             return false;
         }
     }
