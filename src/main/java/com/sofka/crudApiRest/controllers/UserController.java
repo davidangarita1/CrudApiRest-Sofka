@@ -2,7 +2,9 @@ package com.sofka.crudApiRest.controllers;
 
 import com.sofka.crudApiRest.models.UserModel;
 import com.sofka.crudApiRest.services.UserService;
+import com.sun.istack.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.PostUpdate;
@@ -21,7 +23,7 @@ public class UserController {
     }
 
     @PostMapping()
-    public UserModel saveUsers(@RequestBody UserModel user){
+    public String saveUsers(@RequestBody UserModel user){
         return this.userService.saveUser(user);
     }
 
@@ -33,6 +35,11 @@ public class UserController {
     @GetMapping("/query")
     public ArrayList<UserModel> getUserByPriority(@RequestParam("priority") Integer priority){
         return this.userService.getByPriority(priority);
+    }
+
+    @GetMapping("/{email}")
+    public Optional<UserModel> getByEmail(@RequestParam("email") String email){
+        return this.userService.getByEmail(email);
     }
 
     @DeleteMapping(path = "/{id}")

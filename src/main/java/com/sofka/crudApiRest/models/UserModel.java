@@ -1,4 +1,4 @@
-package com.sofka.ApiRestSpring.ApiRestSpring.models;
+package com.sofka.crudApiRest.models;
 
 import javax.persistence.*;
 
